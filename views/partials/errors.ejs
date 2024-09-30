@@ -1,0 +1,6 @@
+<%if (locals.errors){%> <%errors.forEach((error)=>{%>
+
+<ul>
+  <li class="error-msg"><%=error.msg%></li>
+</ul>
+<%})%> <%}%>
