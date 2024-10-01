@@ -42,7 +42,7 @@ exports.userListGet = (req, res, next) => {
   res.render("index", { title: "Users List", users: usersStorage.getUsers() });
 };
 exports.userCreateGet = (req, res, next) => {
-  res.render("createUser", { title: "Create User" });
+  res.render("createUser", { title: "Create User", userData: "" });
 };
 
 exports.userCreatePost = [
@@ -50,9 +50,11 @@ exports.userCreatePost = [
   (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res
-        .status(400)
-        .render("createUser", { title: "Create user", errors: errors.array() });
+      return res.status(400).render("createUser", {
+        title: "Create user",
+        errors: errors.array(),
+        userData: req.body,
+      });
     }
 
     const { firstName, lastName, email, age, bio } = req.body;

@@ -19,15 +19,39 @@
       <%- include("partials/errors.ejs") %>
       <form action="/create" method="post">
         <label for="firstName">First Name:</label>
-        <input type="text" name="firstName" id="firstName" />
+        <input
+          type="text"
+          name="firstName"
+          value="<%= userData ? userData.firstName:''%>"
+          id="firstName"
+        />
         <label for="lastName">Last Name:</label>
-        <input type="text" name="lastName" id="lastName" />
+        <input
+          type="text"
+          name="lastName"
+          id="lastName"
+          value="<%= userData ? userData.lastName:''%>"
+        />
         <label for="email">E-mail:</label>
-        <input type="text" name="email" id="email" />
+        <input
+          type="text"
+          name="email"
+          id="email"
+          value="<%= userData ?
+        userData.email:''%>"
+        />
         <label for="age">Age:</label>
-        <input type="number" name="age" id="age" />
+        <input
+          type="text"
+          name="age"
+          id="age"
+          value="<%= userData ?
+        userData.age:'' %>"
+        />
         <label for="bio">Bio:</label>
-        <textarea name="bio" id="bio"></textarea>
+        <textarea name="bio" id="bio">
+<%= userData ? userData.bio : ''%></textarea
+        >
         <button type="submit">Submit</button>
         <a href="/">Back Home</a>
       </form>
