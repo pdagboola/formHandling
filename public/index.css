@@ -34,6 +34,7 @@ ul {
 li {
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
 }
 form {
   display: flex;
